@@ -1,0 +1,232 @@
+#include<stdio.h>
+
+void dashboard();
+void castvote();
+void voteconfirm(char* str[], int canch);
+void result();
+void lock();
+
+int a11 , a12, a21, a22, a23, lockflag;
+char* area1str[2] = {"Reynold","Amrith"};
+char* area2str[3] = {"Brad","Smith","John"};
+
+
+int main()
+{
+    dashboard();
+    return 0;
+}
+
+
+void dashboard()
+{
+    
+    int chc;
+    
+    do{
+        
+        printf("*****  Welcome to Election  *****");
+        printf("\n1.Cast Vote \n2.Results \n3.Lock \n99. Exit\n");
+        scanf("%d", &chc);
+        
+        switch(chc)
+        {
+            case 1: { 
+                castvote();
+                break;
+            }
+            case 2: {
+                result();
+                break;
+            }
+            case 3: {
+                lock();
+                break;
+            }
+            case 99: {
+                printf("Thank You");
+                break;
+            }
+            dBradault : {
+                printf("Invalid Section. Choose the Correct Section\n");
+            }
+        }
+    }
+    while (chc != 99);
+    
+}
+
+
+void lock()
+{
+    char lc;
+    printf("\nDo you wanna Lock/Release the Election : \n( l for Lock/ r for Release)\n");
+    scanf(" %c", &lc);
+    
+    if (lc == 'l')
+    {
+        lockflag = 1;
+        printf("The Election is Closed.\n\n");
+    }
+    else if (lc == 'r')
+    {
+        lockflag = 0;
+        printf("Voting is Open.\n\n");
+        a11 = a12 = a21 = a22 = a23 = 0;
+        
+    }
+    else
+    {
+        printf("Invalid Input.\n\n");
+    }
+}
+
+
+void castvote()
+{
+    if (lockflag == 0)
+    {
+        int ch;
+        int canch;
+        printf("\nSelect Your Area : \n1. Area--1\t2. Area--2\t3. Main Menu\n");
+        scanf("%d", &ch);
+        if (ch == 1)
+        {   
+            
+            printf("\n----- Area - 1 ------\n");
+            printf("Select the candidate you like to vote.\n1.Reynold\n2.Amrith\n");
+            scanf("%d", &canch);
+            voteconfirm(area1str, canch);
+        }
+        else if (ch == 2)
+        {
+            
+            printf("\n----- Area - 2 ------\n");
+            printf("Select the candidate you like to vote.\n1.Brad\n2.Smith\n3.John\n");
+            scanf("%d", &canch);
+            voteconfirm(area2str, canch);
+        }
+    }
+    else
+        printf("\nElection Ended. Check Result!!\n\n");
+}
+
+
+void voteconfirm(char* str[], int canch)
+{
+    char con;
+    printf("\nAre You Sure you want to vote for %s Candidate/party : (y/n):\n", str[canch-1]);
+    scanf(" %c", &con);
+    
+    if (str[canch-1] == "Reynold" && con == 'y'){
+        printf("Voted Successfully for party/candidate Reynold\n\n");
+        a11++;
+    }
+    else if(str[canch-1] == "Amrith" && con == 'y')
+    {
+        printf("Voted Successfully for party/candidate Amrith\n\n");
+        a12++;
+    }
+    else if(str[canch-1] == "Brad" && con == 'y')
+    {
+        printf("Voted Successfully for party/candidate Brad\n\n");
+        a21++;
+    }
+    else if(str[canch-1] == "Smith" && con == 'y')
+    {
+        printf("Voted Successfully for party/candidate Smith\n\n");
+        a22++;
+    }
+    else if(str[canch-1] == "John" && con == 'y')
+    {
+        printf("Voted Successfully for party/candidate John\n\n");
+        a23++;
+    }
+    else if(con == 'n')
+    {
+        printf("Vote cancelled\n\n");
+    }
+    else
+    {
+        printf("Invalid Input\n\n");
+    }
+}
+
+
+void result()
+{
+    int resch;
+    
+    if (lockflag == 1)
+    {
+        printf("\nElection Results\nSelect The Area : \n");
+        printf("1.Area-1\t2.Area-2\t3.Main Menu\n");
+        scanf("%d", &resch);
+        if (resch == 1)
+        {
+            
+            printf("Party/Candidate %s's vote count : %d\n", area1str[0], a11);
+            printf("Party/Candidate %s's Vote count : %d\n\n", area1str[1],a12);
+            
+            if (a11 > a12){
+                printf("The Winner is %s\n\n", area1str[0]);
+            }
+            else if (a11 == a12){
+                printf("Both Party secured same amount of Vote\n\n");
+            }
+            else{
+                printf("The Winner is %s\n\n", area1str[1]);
+            }
+            
+            
+        }
+        else if (resch == 2)
+        {
+            printf("Party/Candidate %s's vote count : %d\n", area2str[0], a21);
+            printf("Party/Candidate %s's Vote count : %d\n", area2str[1], a22);
+            printf("Party/Candidate %s's Vote count : %d\n", area2str[2], a23);
+            
+            if (a21 > a22 && a21 > a23)
+            {
+                printf("\nThe Winner is %s\n\n", area2str[0]);
+            }
+            else if (a22 > a23 && a22 > a21)
+            {
+                printf("\nThe Winner is %s\n\n", area2str[1]);
+            }
+            else if (a22 < a23 && a23 > a21)
+            {
+                printf("\nThe Winner is %s\n\n", area2str[2]);
+            }
+            else if (a21 == a22 && a22 == a23)
+            {
+                printf("\nAll Parties secured same amount of Vote\n\n");
+            }
+            else if (a21 == a22 && a22 != a23)
+            {
+                printf("\nBoth %s and %s Secured same Vote\n\n", area2str[0], area2str[1]);
+            }
+            else if (a22 == a23 && a22 != a21)
+            {
+                printf("\nBoth %s and %s Secured same Vote\n\n", area2str[1], area2str[2]);
+            }
+            else if (a21 == a23 && a22 != a21)
+            {
+                printf("\nBoth %s and %s Secured same Vote\n\n", area2str[0], area2str[2]);
+            }
+            
+        }
+        else if (resch == 3)
+        {
+            printf("\nReturning Main.\n\n");
+        }
+        else
+        {
+            printf("\nInvalid Request. Returning Main\n\n");
+        }
+    }
+    else
+    {
+        printf("\nThe Election is Still going on.\n\n");
+    }
+}
