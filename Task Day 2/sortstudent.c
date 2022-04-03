@@ -56,6 +56,7 @@ void getinputs()
 void display(int num)
 
 {
+    printf("------------------------------------------------------");
     printf("\nStudent details:\n");
     for(int i = 0;i < num; i++)
     {
@@ -70,8 +71,17 @@ void display(int num)
         printf("\nMarks Obtained: %.2f\n",arr[i]->marks);
 
     }
-    
+    printf("------------------------------------------------------");
+    printf("\nStudent Details according to the highest marks:\n");
     sorting(num);
+    for(int i = 0; i<num; i++)
+    {
+        printf("\nName:%s\n",arr[i]->name);
+        printf("\nRegister Number:%d\n",arr[i]->roll);
+        printf("\nDepartment:%s\n",arr[i]->dep);
+        printf("\nMarks obtained:%.2f\n",arr[i]->marks);
+        
+    }
     
 
 }
@@ -86,20 +96,26 @@ void sorting(int num)
         {
             if(arr[i]->marks < arr[j]->marks)
             {
-                val = arr[i]->marks;
-                arr[i]->marks = arr[j]->marks;
-                arr[j]->marks = val;
+                val = arr[i];
+                arr[i] = arr[j];
+                arr[j] = val;
             }
             
         }
+        
     }
-    printf("\nStudent Details according to the highest marks:\n");
+     
     for(int i = 0; i<num; i++)
+    
     {
         printf("\nName:%s\n",arr[i]->name);
+        
         printf("\nRegister Number:%d\n",arr[i]->roll);
+        
         printf("\nDepartment:%s\n",arr[i]->dep);
+        
         printf("\nMarks obtained:%.2f\n",arr[i]->marks);
         
     }
+    
 }
