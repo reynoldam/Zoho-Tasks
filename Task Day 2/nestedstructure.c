@@ -2,6 +2,7 @@
 #include<string.h>
 #define len 30
 void getinputs();
+void display();
 
 void(*p)();
 
@@ -18,7 +19,7 @@ struct joining
     int year;
     struct employee empo;
 };
-
+struct joining join;
 void main()
 {
     p = getinputs;
@@ -28,9 +29,8 @@ void main()
 
 void getinputs()
 {
-    struct joining join;
     printf("Enter name of the employee:\n");
-    scanf("%s",(char*)join.empo.name);
+    scanf("%s",join.empo.name);
     printf("enter the employee id:\n");
     scanf("%d",&join.empo.id);
     printf("Enter the date of Joining:\n");
@@ -39,7 +39,12 @@ void getinputs()
     scanf("%d",&join.month);
     printf("Enter The year of joining:\n");
     scanf("%d",&join.year);
-    printf("Name: %s\nEmployee id: %d\n",(char*)join.empo.name,join.empo.id);
+    p = display;
+    p();
+}
+
+void display()
+{
+    printf("Name: %s\nEmployee id: %d\n",join.empo.name,join.empo.id);
     printf("Date of Joining: %d/%d/%d\n",join.date,join.month,join.year);
-  
 }
