@@ -132,22 +132,22 @@ void voteconfirm(char* str[], int cand)
     }
     else if(str[cand-1] == "Amrith" && con == 'y')
     {
-        printf("Voted Successfully for party/candidate cd\n\n");
+        printf("Voted Successfully for party/candidate Amrith\n\n");
         a12++;
     }
     else if(str[cand-1] == "Brad" && con == 'y')
     {
-        printf("Voted Successfully for party/candidate ef\n\n");
+        printf("Voted Successfully for party/candidate Brad\n\n");
         a21++;
     }
     else if(str[cand-1] == "Smith" && con == 'y')
     {
-        printf("Voted Successfully for party/candidate gh\n\n");
+        printf("Voted Successfully for party/candidate Smith\n\n");
         a22++;
     }
     else if(str[cand-1] == "Nick" && con == 'y')
     {
-        printf("Voted Successfully for party/candidate ij\n\n");
+        printf("Voted Successfully for party/candidate Nick\n\n");
         a23++;
     }
     else if(con == 'n')
