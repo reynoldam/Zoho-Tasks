@@ -49,7 +49,7 @@ void getinputs()
         
     }
     display(num);
-    sorting(num);
+    
     
 }
 
@@ -74,14 +74,6 @@ void display(int num)
     printf("------------------------------------------------------");
     printf("\nStudent Details according to the highest marks:\n");
     sorting(num);
-    for(int i = 0; i<num; i++)
-    {
-        printf("\nName:%s\n",arr[i]->name);
-        printf("\nRegister Number:%d\n",arr[i]->roll);
-        printf("\nDepartment:%s\n",arr[i]->dep);
-        printf("\nMarks obtained:%.2f\n",arr[i]->marks);
-        
-    }
     
 
 }
@@ -89,7 +81,8 @@ void display(int num)
 void sorting(int num)
 
 {
-    int i,j,val;
+    int i,j;
+    struct students val;
     for(i=0;i<num;i++)
     {
         for(j = i+1;j<num;j++)
