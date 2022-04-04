@@ -49,19 +49,20 @@ void uppertriangle(int arr[length][length],int row,int column)
     {
         for(int j = 0; j < i ;j++)
         {
-            if(arr[i][j]!=0)
+            if((i>j) && arr[i][j]!=0)
             {
-                flag = 0;
+                flag = 1;
+                break;
                 
             }
             else
             {
-                flag = 1;
+                flag = 0;
             }
         }
     }
         
-        if(flag == 1)
+        if(flag == 0)
             {
                 printf("\nIt is a Upper Triangle\n");
             }
