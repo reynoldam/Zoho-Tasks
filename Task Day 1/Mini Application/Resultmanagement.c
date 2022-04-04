@@ -28,7 +28,6 @@ int login();
 void result();
 void grade();
 
-// ADMIN
 void add_student();
 
 int student_list();
