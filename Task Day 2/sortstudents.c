@@ -17,7 +17,7 @@ struct students
 
 };
 
-struct students *arr[len];
+struct students arr[len];
 
 void main()
 
@@ -33,19 +33,18 @@ void getinputs()
     scanf("%d",&num);
     for(int i=0;i<num;i++)
     {
-        arr[i] = (struct students*)malloc(sizeof(struct students));
         
         printf("\nEnter the student name %d:\n",i+1);
-        scanf("%s",arr[i]->name);
+        scanf("%s",arr[i].name);
         
         printf("\nEnter the Register Number:\n");
-        scanf("%d",&arr[i]->roll);
+        scanf("%d",&arr[i].roll);
     
         printf("\nEnter the Department\n");
-        scanf("%s",arr[i]->dep);
+        scanf("%s",arr[i].dep);
     
         printf("\nEnter the marks obtained:\n");
-        scanf("%f",&arr[i]->marks);
+        scanf("%f",&arr[i].marks);
         
     }
     display(num);
@@ -62,13 +61,13 @@ void display(int num)
     {
         printf("\nStudent Number : %d\n", i + 1);
         printf("\n");
-        printf("\nStudent name:%s\n",arr[i]->name);
+        printf("\nStudent name:%s\n",arr[i].name);
         printf("\n");
-        printf("\nRegister Number:%d\n",arr[i]->roll);
+        printf("\nRegister Number:%d\n",arr[i].roll);
         printf("\n");
-        printf("\nDepartment:%s\n",arr[i]->dep);
+        printf("\nDepartment:%s\n",arr[i].dep);
         printf("\n");
-        printf("\nMarks Obtained: %.2f\n",arr[i]->marks);
+        printf("\nMarks Obtained: %.2f\n",arr[i].marks);
 
     }
     printf("------------------------------------------------------");
@@ -87,7 +86,7 @@ void sorting(int num)
     {
         for(j = i+1;j<num;j++)
         {
-            if(arr[i]->marks < arr[j]->marks)
+            if(arr[i].marks < arr[j].marks)
             {
                 val = arr[i];
                 arr[i] = arr[j];
@@ -101,13 +100,13 @@ void sorting(int num)
     for(int i = 0; i<num; i++)
     
     {
-        printf("\nName:%s\n",arr[i]->name);
+        printf("\nName:%s\n",arr[i].name);
         
-        printf("\nRegister Number:%d\n",arr[i]->roll);
+        printf("\nRegister Number:%d\n",arr[i].roll);
         
-        printf("\nDepartment:%s\n",arr[i]->dep);
+        printf("\nDepartment:%s\n",arr[i].dep);
         
-        printf("\nMarks obtained:%.2f\n",arr[i]->marks);
+        printf("\nMarks obtained:%.2f\n",arr[i].marks);
         
     }
     
