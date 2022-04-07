@@ -36,7 +36,7 @@ int main()
                 fprintf(feven,"%d\n",numb);
             }
         
-        else(numb%2 == 1)
+        if(numb%2 == 1)
         
             {
                 fprintf(fodd,"%d\n",numb);
