@@ -23,7 +23,7 @@ int main()
     }
     printf("File opened successfully\n\n");
 
-    while(fscanf(finput,"%d",&numb) != -1)
+    while(fscanf(finput,"%d",&numb) != EOF)
     {
         if(numb < 0)
         {
