@@ -9,7 +9,9 @@ int main()
     FILE *feven;
     FILE *fprime;
 
+    int flag = 0;
     int numb;
+    
     finput = fopen("Number.txt","r");
     feven = fopen("Even.txt","w");
     fodd = fopen("Odd.txt","w");
@@ -21,36 +23,41 @@ int main()
         printf("File does not exist");
         exit(1);
     }
+    
     printf("File opened successfully\n\n");
 
-    while(fscanf(finput,"%d",&numb) != EOF)
+    while(feof(finput) == 0)
+    
     {
-        if(numb < 0)
-        {
-            return 0;
-
-            for (int i = 2;i<=numb/2;i++)
+        fscanf(finput,"%d",&numb);
+        if(numb%2==0)
+        
+            {
+                fprintf(feven,"%d\n",numb);
+            }
+        
+        else(numb%2 == 1)
+        
+            {
+                fprintf(fodd,"%d\n",numb);
+            }
+            
+        for (int i = 2;i<=numb/2;i++)
+        
             {
                 if (numb % i == 0)
-                {
-                    return 0;
-                }
+                    {
+                        flag = 1;
+                        break;
+                    }
+            
             }
-
-            return 1;
-
-            fprintf(fprime,"%d",numb);
-        }
-
-        else if(numb % 2 == 0)
-        {
-            fprintf(feven,"%d",numb);
-        }
-
-        else
-        {
-            fprintf(fodd,"%d",numb);
-        }
+            
+            if(flag == 0)
+            
+                {
+                    fprintf(fprime,"%d\n",numb);
+                }
     }
 
     fclose(finput);
@@ -60,4 +67,5 @@ int main()
 
     return 0;
 
+    
 }
