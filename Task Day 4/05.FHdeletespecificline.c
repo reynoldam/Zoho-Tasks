@@ -7,7 +7,7 @@ int main()
 {
     FILE *f1,*f2;
     int del;
-    int val;
+    int val = 1;
     char name[len];
     char data[len];
     char ch;
@@ -22,15 +22,14 @@ int main()
 
     for (int i = 0; i<num ;i++)
     {
-        printf("Enter Data: ");
+        printf("Enter Data:\n");
         scanf("%s",data);
-        fprintf(f1,"%s",data);
+        fprintf(f1,"%s\n",data);
     }
     
     fclose(f1);
     
     f1 = fopen(name,"r");
-    ch = getc(f1);
     
     printf("Enter the line number to be deleted: ");
     scanf("%d",&del);
@@ -42,7 +41,6 @@ int main()
     {
         if(ch=='\n')
         {
-            printf("%c",ch);
             val ++;
         }
         
