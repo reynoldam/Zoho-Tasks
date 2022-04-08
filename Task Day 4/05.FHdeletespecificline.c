@@ -19,11 +19,10 @@ int main()
     int num;
     printf("Enter the Number of data to get stored: ");
     scanf("%d",&num);
-    
+
     for (int i = 0; i<num ;i++)
-    
     {
-        printf("Enter Data %d: ",num);
+        printf("Enter Data: ");
         scanf("%s",data);
         fprintf(f1,"%s",data);
     }
@@ -36,12 +35,14 @@ int main()
     printf("Enter the line number to be deleted: ");
     scanf("%d",&del);
     
+    f2 = fopen("new.txt","w");
+    ch = getc(f1);
     
     while(ch != EOF)
     {
         if(ch=='\n')
         {
-            printf("c",ch);
+            printf("%c",ch);
             val ++;
         }
         
@@ -49,8 +50,10 @@ int main()
         {
           putc(ch,f2);  
         }
-        ch = getc(f1)
+        
+        ch = getc(f1);
     }
+    
     fclose(f1);
     fclose(f2);
 }
