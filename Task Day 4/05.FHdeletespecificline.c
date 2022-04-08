@@ -1,61 +1,56 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define len 50
-int filehand();
-int (*p)();
+#define len 100
 
-void main()
+int main()
+
 {
-    p = filehand;
-    p();
-}
-
-
-int filehand()
-{
-    FILE *fp1,*fp2;
-    char file[len];
-    char c;
-    int delete;
-    int val = 1;
+    FILE *f1,*f2;
+    int del;
+    int val;
+    char name[len];
+    char data[len];
+    char ch;
     
-    printf("Enter the file name: ");
-    scanf("%s",file);
-    fp1 = fopen(file,"r");
-    c = getc(fp1);
-    while(c != EOF)
+    printf("Enter the Name of File 1: ");
+    scanf("%s",name);
+    f1 = fopen(name,"w");
+    
+    int num;
+    printf("Enter the Number of data to get stored: ");
+    scanf("%d",&num);
+    
+    for (int i = 0; i<num ;i++)
+    
     {
-        printf("%c",c);
-        c = getc(fp1);
+        printf("Enter Data %d: ",num);
+        scanf("%s",data);
+        fprintf(f1,"%s",data);
     }
-    rewind(fp1);
+    
+    fclose(f1);
+    
+    f1 = fopen(name,"r");
+    ch = getc(f1);
+    
     printf("Enter the line number to be deleted: ");
-    scanf("%d",&delete);
-    fp2 = fopen(file,"w");
-    while(c != EOF)
+    scanf("%d",&del);
+    
+    
+    while(ch != EOF)
     {
-        c = getc(fp1);
-        if(c = '\n'){
-         
-            val ++;   
-        }
-        
-        
-        if(val != delete)
+        if(ch=='\n')
         {
-            putc(c,fp2);
+            printf("c",ch);
+            val ++;
         }
-    }
-    fclose(fp1);
-    rename("replica.txt",file);
-    fp1 = fopen(file,"r");
-    c = getc(fp1);
-    while(c != EOF)
-    {
-        printf("%s",&c);
-        c = getc(fp1);
         
+        if(val != del)
+        {
+          putc(ch,f2);  
+        }
+        ch = getc(f1)
     }
-    fclose(fp1);
-    return 0;
+    fclose(f1);
+    fclose(f2);
 }
