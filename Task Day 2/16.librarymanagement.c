@@ -16,7 +16,7 @@ struct student{
     int stud_id;
     char name[Length];
     int book_id;
-    time_t gettime;
+    time_t gettime ;
     
 };
 
@@ -33,6 +33,7 @@ int login();
 void add_student();
 void display_stud();
 void allocate_book();
+void release();
 
 int cnt = 0;
 int scnt = 0;
@@ -102,10 +103,11 @@ void admin()
             printf("\n 1. Add Books");
             printf("\n 2. Display Book List");
             printf("\n 3. Delete Book");
-            printf("\n 4. Allocate Book");
-            printf("\n 5. Add Student");
-            printf("\n 6. Student List");
-            printf("\n 9. Main Menu");
+            printf("\n 4. Add Student");
+            printf("\n 5. Student List");
+            printf("\n 6. Allocate Book");
+            printf("\n 7. Return Book");
+            printf("\n 8. Main Menu");
             printf("\n Enter Option : ");
             scanf("%d", &ch);
             switch(ch)
@@ -129,22 +131,27 @@ void admin()
                     ptr();
                     break;
                 }
-                case 4:
-                {
-                    allocate_book();
-                    break;
-                }
-                case 5 :
+                case 4 :
                 {
                     add_student();
                     break;
                 }
-                case 6 :
+                case 5 :
                 {
                     display_stud();
                     break;
                 }
-                case 9 :
+                case 6:
+                {
+                    allocate_book();
+                    break;
+                }
+                case 7:
+                {
+                    release();
+                    break;
+                }
+                case 8 :
                 {
                     printf("\n Returning Main");
                     break;
@@ -156,7 +163,7 @@ void admin()
                 
                 
             }
-        }while(ch != 9);
+        }while(ch != 8);
     }
 }
 
@@ -295,6 +302,8 @@ void display_stud()
             printf("\n -----Student %d-----", i+1);
             printf("\n Student Id : %d", s[i].stud_id);
             printf("\n Student Name : %s", s[i].name);
+            printf("\n Current Book Taken : %d", s[i].book_id);
+            printf("\n Book taken date : %ld", s[i].gettime);
             
         }
     }
@@ -366,6 +375,64 @@ void allocate_book()
     }
     
     
+}
+
+
+void release()
+{
+    
+    int r, flag = 0, j;
+    
+    printf("\n Enter the Studend Roll Number : ");
+    scanf("%d", &r);
+    
+    for(j = 0; j < scnt; j++)
+        {
+            if (s[j].stud_id == r)
+            {
+            
+                flag = 1;
+                break;
+            }
+        }
+        
+    if (s[j].book_id > 0 && flag == 1)
+    {
+        
+        int i;
+        
+        for(i = 0; i < cnt; i++)
+        {
+            if (s[j].book_id == b[i].book_id)
+            {
+                char op[1];
+                printf("\n The book Details : ");
+                printf("\n Book Id : %d", b[i].book_id);
+                printf("\n Book Name : %s", b[i].name);
+                printf("\n Do you want to return the book (y/n): ");
+                scanf(" %c", op);
+                
+                if(*op == 'y')
+                {
+                strcpy(b[i].status, "Available");
+                s[j].book_id = 0;
+                s[j].gettime = 0;
+                }
+                    
+            }
+    }
+        
+        
+    }
+    else if (s[j].book_id == 0)
+    {
+        printf("\n The student has not taken any book.");
+    }
+    else
+    {
+        
+        printf("\n Student Not Found.");
+    }
     
     
     
