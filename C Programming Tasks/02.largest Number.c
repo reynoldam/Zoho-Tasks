@@ -6,7 +6,7 @@ int main()
 {
    int num1, num2, num3;
    
-   printf("\n Enter three Numbers : ");
+   printf("\n Enter three Numbers :\n");
    scanf("%d %d %d",&num1, &num2, &num3);
    
    largest(num1, num2, num3);
@@ -24,7 +24,7 @@ void largest(int num1, int num2, int num3)
     {
        printf("%d is the largest Number", num2);
     }
-   else\
+   else
    {
        printf("%d is the largest Number",num3);
    }
