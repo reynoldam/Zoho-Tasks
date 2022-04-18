@@ -41,5 +41,6 @@ void FindMonth(int month){
         break;
         default:
         printf("Enter a Valid Month Number");
+        continue;
     }
 }
