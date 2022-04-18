@@ -8,23 +8,25 @@ int main()
     
     do{
     printf("\n AREA ");
-    printf("\n [11]. CIRCLE ");
-    printf("\n [22]. RECTANGLE");
-    printf("\n [33]. SQUARE");
-    printf("\n [44]. TRIANGLE");
-    printf("\n [55]. EXIT");
+    printf("\n [1]. CIRCLE ");
+    printf("\n [2]. RECTANGLE");
+    printf("\n [3]. SQUARE");
+    printf("\n [4]. TRIANGLE");
+    printf("\n [5]. EXIT");
     printf("\n Enter option : ");
     scanf("%d", &opt);
     
     area(opt);
     
-    }while(opt != 55);
+    }
+    while(opt != 5);
     return 0;
 }
+
 void area(int opt){
     
     switch(opt){
-        case 11:
+        case 1:
         {
             printf("\n Area of Circle. ");
             int r;
@@ -36,7 +38,8 @@ void area(int opt){
             
             break;
         }
-        case 22:
+            
+        case 2:
         {
             printf("\n Area of RECTANGLE. ");
             int l, b;
@@ -48,7 +51,8 @@ void area(int opt){
             
             break;
         }
-        case 33:
+            
+        case 3:
         {
             printf("\n Area of SQUARE. ");
             int l;
@@ -60,7 +64,8 @@ void area(int opt){
             
             break;
         }
-        case 44:
+            
+        case 4:
         {
             printf("\n Area of TRIANGLE. ");
             int l, b, h;
@@ -72,9 +77,11 @@ void area(int opt){
             
             break;
         }
-        case 55 :
+            
+        case 5 :
             printf("\n Thank you");
             break;
+            
         default :
         {
             printf("\n Invalid Input");
