@@ -13,8 +13,10 @@ int main()
     
     return 0;
 }
-void FindMonth(int month){
-    switch(month){
+void FindMonth(int month)
+{
+    switch(month)
+    {
         case 1:printf("JANUARY");
         break;
         case 2:printf("FEBRUARY");
@@ -41,6 +43,6 @@ void FindMonth(int month){
         break;
         default:
         printf("Enter a Valid Month Number");
-        continue;
     }
+        
 }
