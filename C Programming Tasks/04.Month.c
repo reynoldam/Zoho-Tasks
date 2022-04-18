@@ -39,5 +39,7 @@ void FindMonth(int month){
         break;
         case 12:printf("DECEMBER");
         break;
+        default:
+        printf("Enter a Valid Month Number");
     }
 }
