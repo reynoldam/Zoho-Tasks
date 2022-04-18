@@ -4,13 +4,13 @@ int CheckMax(int *,int *);
 
 int main()
 {
-    int F_number, S_number, *ptr,*ptr1;
+    int F, S, *ptr,*ptr1;
     
     printf("\n Enter Two Numbers : ");
-    scanf("%d %d",&F_number, &S_number);
+    scanf("%d %d",&F, &S);
     
-    ptr = &F_number;
-    ptr1 = &S_number;
+    ptr = &F;
+    ptr1 = &S;
     
     CheckMax(ptr, ptr1);
     
