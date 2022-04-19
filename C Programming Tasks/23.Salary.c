@@ -35,7 +35,7 @@ void getdetails()
     for(i = 0;i<num;i++)
     
     {
-        printf("Enter Name of the Employee %d: \t",i+1);
+        printf("\nEnter Name of the Employee %d: \t",i+1);
         scanf("%s",e[i].name);
         printf("\nEnter the Salary of the Employee %d:\t",i+1);
         scanf("%d",&e[i].sal);
@@ -62,7 +62,7 @@ void print(int num)
     }
     
         
-    printf("\nIncreased Salary of Employees \n");
+    printf("\nIncreased Salaries of Employees \n");
     salary(num);
     
 }
@@ -74,18 +74,19 @@ int salary(int num)
         
         if(e[i].hrs >= 8 && e[i].hrs < 10)
         {
-            printf("\nSalary of Employee %d : %d",i+1,(50+e[i].sal));
+            printf("\nIncreased Salary of Employee %d : %d",i+1,(50+e[i].sal));
         }
         
         if(e[i].hrs == 10)
         {
-            printf("\nSalary of Employee %d: %d",i+1,(100+e[i].sal));
+            printf("\nIncreased Salary of Employee %d: %d",i+1,(100+e[i].sal));
         }
     
         if(e[i].hrs > 10 && e[i].hrs >= 12 )
         {
-            printf("\nSalary of Employee %d: %d",i+1,(150+e[i].sal));
+            printf("\nIncreased Salary of Employee %d: %d",i+1,(150+e[i].sal));
         }
     }
+    
     return 0;
 }
