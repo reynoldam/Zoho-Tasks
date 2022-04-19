@@ -44,4 +44,4 @@ int find(int arr[],int n)
     }
     
 }
-© 2022 GitHub, 
+
