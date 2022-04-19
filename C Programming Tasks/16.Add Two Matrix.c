@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define len 20
 
-int sum(int r,int c,int a[][],int b[][]);
+int sum(int r,int c,int a[len][len],int b[len][len]);
 
 int main()
 {
@@ -56,7 +56,7 @@ int main()
     return 0;
 }
 
-int sum(int r,int c,int a[][],int b[][])
+int sum(int r,int c,int a[len][len],int b[len][len])
 {
     int sums[len][len];
     
