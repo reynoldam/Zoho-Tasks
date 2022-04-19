@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-long int Factorial(int);
+long int Factorial(int n);
 
 int main()
 {
@@ -14,12 +14,16 @@ int main()
     return 0;
 }
 
-long int Factorial(int n){
+long int Factorial(int n)
+
+{
     
-    if(n>1){
+    if(n>1)
+    {
         return n*Factorial(n-1);
     }
-    else{
+    else
+    {
         return 1;
     }
 }
