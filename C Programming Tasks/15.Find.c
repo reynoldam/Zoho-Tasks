@@ -19,15 +19,18 @@ int main()
     
     return 0;
 }
-int find(int arr[],int n){
 
-    int f, flag = 0;
+int find(int arr[],int n)
+{
+
+    int fi, flag = 0;
     
     printf("\n Enter the number to find in Array : ");
-    scanf("%d", &f);
+    scanf("%d", &fi);
     
-    for(int i = 0; i < n;i++){
-        if (arr[i] == f)
+    for(int i = 0; i < n;i++)
+    {
+        if (arr[i] == fi)
         {
             printf("\n The number found in pos %d", i+1);
             flag = 1;
@@ -37,7 +40,8 @@ int find(int arr[],int n){
     
     if (flag == 0)
     {
-        printf("\n NUmber not found");
+        printf("\n Number not found");
     }
     
 }
+© 2022 GitHub, 
