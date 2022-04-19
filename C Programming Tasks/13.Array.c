@@ -1,5 +1,6 @@
 #include<stdio.h>
 #define LENGTH 20
+
 int printArr(int arr[] ,int n);
 
 int main()
@@ -12,7 +13,7 @@ int main()
     
     for(int i=0;i<n;i++)
     {
-        printf("\n Enter the number %d : ", i+1);
+        printf("\n Enter the Element %d : ", i+1);
         scanf("%d", &arr[i]);
     }
     printArr(arr,n);
@@ -24,8 +25,9 @@ int printArr(int arr[],int n){
     printf("Print Entered Array Values are: \n");
     printf("[");
     
-    for(int i=0;i<n;i++){
-        printf("%d\t",arr[i]);
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",arr[i]);
     }
     
     printf("]");
