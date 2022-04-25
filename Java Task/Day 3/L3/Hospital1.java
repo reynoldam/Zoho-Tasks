@@ -8,7 +8,7 @@ class Hospital
     String problem;
     long number;
     
-    public Hospital()
+    public Hospital(Str)
     {
         
     }
