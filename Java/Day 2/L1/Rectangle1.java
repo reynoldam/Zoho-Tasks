@@ -13,24 +13,24 @@ Rectangle(int l,int b)
     }
 
 
-void area(int l,int b)
+void area()
     {
         int a;
         
-        a = l*b;
+        a = length*breadth;
         
         System.out.println("The Area of the Rectangle is "+ a);
     }
 }
 
-public class Rectangle1
+public class Main
 {
     public static void main(String[] args)
     {
         Rectangle r1 = new Rectangle(4,5);
         Rectangle r2 = new Rectangle(5,8);
         
-        r1.area(4,5);
-        r2.area(5,8);
+        r1.area();
+        r2.area();
     }
 }
