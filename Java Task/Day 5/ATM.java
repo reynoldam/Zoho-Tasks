@@ -8,7 +8,7 @@ class Payment
          String bankName = "SBI";
          private String acc;
          Scanner s = new Scanner(System.in);
-         String[] his = new String [20];
+         String[] hist = new String [20];
          int count = 0;
          int pin = 6677;
          
@@ -152,7 +152,7 @@ public void Withdraw()
     {
         bal -= money;
         System.out.println("\nMoney Withdrawed" + " " + "Thank you for Banking\n");
-        his[count] = "Withdraw : -" + money + " " + "Remaining Balance : " + bal;
+        hist[count] = "Withdraw : -" + money + " " + "Remaining Balance : " + bal;
         count++;
     }
     
@@ -174,7 +174,7 @@ public void Deposit()
   
   System.out.println("\nMoney Deposited Successfully\n");
    
-   his[count] = "Deposit : +" + dep + " " + "Balance: " + bal;
+   hist[count] = "Deposit : +" + dep + " " + "Balance: " + bal;
    count++;
 
     
@@ -184,7 +184,7 @@ public void History()
 {
     for(int i = 0; i < count; i++)
     {
-        System.out.println(his[i]);
+        System.out.println(hist[i]);
         
     }
     
