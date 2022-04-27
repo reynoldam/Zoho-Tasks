@@ -5,11 +5,15 @@ class Payment
 {
          private int bal;
          String name = "Reynold";
+         
          String bankName = "SBI";
+         
          private String acc;
          Scanner s = new Scanner(System.in);
+         
          String[] hist = new String [20];
          int count = 0;
+         
          int pin = 6677;
          
     
@@ -58,16 +62,15 @@ public void Pin()
     else
         {
             cnt--;
-            System.out.println("Your Pin Number is Incorrect Try Again");
+            System.out.println("Your Pin Number is Incorrect ");
         } 
-        
+    }    
     if(cnt == 0)
     
     {
-         System.out.println("Your Card has Been Temporarily Blocked Please Contact Your Respective Bank\n");
+         System.out.println("Your Card has Been Temporarily Blocked Please Contact Your Respective Bank Thanking You\n");
     }
     
-    }
 }
 public void Template()
 
@@ -81,7 +84,7 @@ public void Template()
     
     {
         
-        System.out.println("Enter Options\n");
+        System.out.println("\nEnter Options\n");
         System.out.println("1.Details\n");
         System.out.println("2.Withdraw\n");
         System.out.println("3.Deposit\n");
@@ -133,10 +136,10 @@ public void Details()
 
 {
     
-  System.out.println(name);
-  System.out.println(bankName);
-  System.out.println(acc);
-  System.out.println(bal);
+  System.out.println("Bank Holder Name: " + name);
+  System.out.println("Bank Account: " + bankName);
+  System.out.println("Account Number:  " + acc);
+  System.out.println("Bank Balance : " + bal);
 
     
 }
@@ -151,14 +154,16 @@ public void Withdraw()
     if(money <= bal)
     {
         bal -= money;
+        
         System.out.println("\nMoney Withdrawed" + " " + "Thank you for Banking\n");
+        
         hist[count] = "Withdrawed : -" + money + " " + "Remaining Balance : " + bal;
         count++;
     }
     
     else
     {
-        System.out.println("Not Enough Balance\n");   
+        System.out.println("Insufficient Balance\n");   
     }
         
 }
@@ -181,7 +186,9 @@ public void Deposit()
 }
 
 public void History()
+
 {
+    
     if(count == 0)
         {
             System.out.println("No Transactions Registered");
@@ -227,7 +234,7 @@ public void Resetpin()
     
     {
         c--;
-        System.out.println("Pin number is Incorrect,Try again\n");
+        System.out.println("Entered Pin number is Incorrect,Try again\n");
         
 
     }
@@ -237,7 +244,7 @@ public void Resetpin()
     if(c == 0)
     
     {
-        System.out.println("Your Card has Been Temporarily Blocked Please Contact Your Respective Bank\n");
+        System.out.println("Your Card has Been Temporarily Blocked Please Contact Your Respective Bank Thanking You\n");
         System.exit(0);
     }
     
@@ -255,7 +262,7 @@ public static void main(String[] args)
     {
         Payment p = new Payment();
         
-        p.setAcc("1023384344534");
+        p.setAcc("102338434453465");
         
         p.setBal(200000);
         
