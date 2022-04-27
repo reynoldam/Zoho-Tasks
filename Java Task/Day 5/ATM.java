@@ -1,4 +1,4 @@
-iimport java.util.*;
+import java.util.*;
 
 class Payment
 
@@ -10,6 +10,8 @@ class Payment
          Scanner s = new Scanner(System.in);
          String[] his = new String [20];
          int count = 0;
+         int pin = 6677;
+         
     
     public String getAcc()
     {
@@ -30,7 +32,43 @@ class Payment
     {
         this.bal = bal;
     }
+public void Pin()
+
+{
+    int pin1;
     
+    int cnt = 2;
+    
+    System.out.println("Welcome!!!!!\n");
+    
+
+    System.out.println("Enter Your Pin Number:\n");
+    while(cnt > 0)
+    
+    {
+        pin1 = s.nextInt();
+    
+    if(pin == pin1)
+        
+        {
+            Template();
+            break;
+        }
+        
+    else
+        {
+            cnt--;
+            System.out.println("Your Pin Number is Incorrect Try Again");
+        } 
+        
+    if(cnt == 0)
+    
+    {
+         System.out.println("Your Card has Been Temporarily Blocked Please Contact Your Respective Bank\n");
+    }
+    
+    }
+}
 public void Template()
 
 {
@@ -47,10 +85,12 @@ public void Template()
         System.out.println("1.Details\n");
         System.out.println("2.Withdraw\n");
         System.out.println("3.Deposit\n");
-        System.out.println("4.Exit\n");
-        System.out.println("5.Check Transactions And History\n");
+        System.out.println("4.Check Transactions And History\n");
+        System.out.println("5.Reset Pin Number\n");
+        System.out.println("6.Exit");
         
         opt = s.nextInt();
+        s.nextLine();
         
         switch(opt)
         
@@ -58,18 +98,27 @@ public void Template()
             case 1:
                 Details();
                 break;
+                
             case 2:
                 Withdraw();
                 break;
+                
             case 3:
                 Deposit();
                 break;
+            
             case 4:
+                History();
+                break;    
+                
+            case 5:
+                Resetpin();
+                break;
+                
+            case 6:
                 System.out.println("\nThank you\n");
                 break;
-            case 5:
-                History();
-                break;
+                
             default:
                 System.out.println("Enter a Valid Option\n");
         }
@@ -140,8 +189,58 @@ public void History()
     }
     
 
-    }
 }
+
+public void Resetpin()
+{
+    int pin2,pin3;
+    
+    int c = 2;
+    
+    
+    while(c > 0)
+    
+    {
+        System.out.println("Please Enter your old Password:\n");
+        pin2 = s.nextInt();
+        
+    if(pin2 == pin)
+    
+    {
+        System.out.println("Enter a New Pin:\n");
+        pin3 = s.nextInt();
+        
+        pin = pin3;
+        
+        System.out.println("Pin Number Changed Succesfully\n");
+        break;
+        
+    }
+    
+    else
+    
+    {
+        c--;
+        System.out.println("Pin number is Incorrect,Try again\n");
+        
+
+    }
+    
+    }
+    
+    if(c == 0)
+    
+    {
+        System.out.println("Your Card has Been Temporarily Blocked Please Contact Your Respective Bank\n");
+        System.exit(0);
+    }
+    
+    
+    
+}
+
+}
+
 public class Main
 {
     
@@ -154,8 +253,9 @@ public static void main(String[] args)
         
         p.setBal(200000);
         
-        p.Template();
+        p.Pin();
         
         
     }
 }
+
