@@ -75,7 +75,7 @@ public void Template()
 
        int opt = 0;
        
-       System.out.println("Welcome\n");
+      
     
     do
     
@@ -125,7 +125,7 @@ public void Template()
     
     }
     
-    while(opt != 4);
+    while(opt != 6);
 
 }
 
@@ -152,7 +152,7 @@ public void Withdraw()
     {
         bal -= money;
         System.out.println("\nMoney Withdrawed" + " " + "Thank you for Banking\n");
-        hist[count] = "Withdraw : -" + money + " " + "Remaining Balance : " + bal;
+        hist[count] = "Withdrawed : -" + money + " " + "Remaining Balance : " + bal;
         count++;
     }
     
@@ -174,19 +174,25 @@ public void Deposit()
   
   System.out.println("\nMoney Deposited Successfully\n");
    
-   hist[count] = "Deposit : +" + dep + " " + "Balance: " + bal;
+   hist[count] = "Deposited : +" + dep + " " + "Balance: " + bal;
    count++;
-
+    
     
 }
 
 public void History()
 {
+    if(count == 0)
+        {
+            System.out.println("No Transactions Registered");
+        }
+        
     for(int i = 0; i < count; i++)
     {
-        System.out.println(hist[i]);
         
+            System.out.println(hist[i]);
     }
+    
     
 
 }
@@ -258,4 +264,3 @@ public static void main(String[] args)
         
     }
 }
-
